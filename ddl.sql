@@ -1,4 +1,8 @@
-use anotacao;
+drop schema if exists spring;
+drop user if exists 'user'@'localhost'; create schema spring;
+create user 'user'@'localhost' identified by 'pass123';
+grant select, insert, delete, update on spring.* to user@'localhost'; 
+use spring;
 
 create table tra_trabalho (
 	tra_id bigint primary key auto_increment,
@@ -8,7 +12,7 @@ create table tra_trabalho (
 	tra_grupo varchar(20) not null,
 	tra_nota int,
 	tra_justificativa varchar(100)
-	);
+);
 	
 insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota, tra_justificativa)
 values 
