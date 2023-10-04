@@ -38,17 +38,17 @@ public class UsuarioService implements IUsuarioService{
             throw new IllegalArgumentException("Usuário com atributos inválidos!");
         }
         if(!usuario.getAutorizacoes().isEmpty()) {
-            Set<Autorizacao> autorizacoes = new HashSet<Autorizacao>();
-            for(Autorizacao autorizacao: usuario.getAutorizacoes()) {
-                Autorizacao autorizacaoBd = buscarAutorizacaoPorId(autorizacao.getId());
+            Set<AutorizacaoEntity> autorizacoes = new HashSet<AutorizacaoEntity>();
+            for(AutorizacaoEntity autorizacao: usuario.getAutorizacoes()) {
+                AutorizacaoEntity autorizacaoBd = buscarAutorizacaoPorId(autorizacao.getId());
                 autorizacoes.add(autorizacaoBd);
             }
             usuario.setAutorizacoes(autorizacoes);
         }
-        Set<Anotacao> anotacoes = usuario.getAnotacoes();
-        usuario.setAnotacoes(new HashSet<Anotacao>());
+        Set<AnotacaoEntity> anotacoes = usuario.getAnotacoes();
+        usuario.setAnotacoes(new HashSet<AnotacaoEntity>());
         usuario = usuarioRepo.save(usuario);
-        for(Anotacao anotacao: anotacoes) {
+        for(AnotacaoEntity anotacao: anotacoes) {
             anotacao.setUsuario(usuario);
             anotacao = anotacaoRepo.save(anotacao);
             usuario.getAnotacoes().add(anotacao);
@@ -69,8 +69,8 @@ public class UsuarioService implements IUsuarioService{
         return usuarioOp.get();
     }
 
-    public Autorizacao buscarAutorizacaoPorId(Long id) {
-        Optional<Autorizacao> autorizacaoOp = autorizacaoRepo.findById(id);
+    public AutorizacaoEntity buscarAutorizacaoPorId(Long id) {
+        Optional<AutorizacaoEntity> autorizacaoOp = autorizacaoRepo.findById(id);
         if(autorizacaoOp.isEmpty()) {
             throw new IllegalArgumentException("Autorizacao nao encontrada!");
         }

@@ -1,4 +1,4 @@
-drop schema if exists spring;
+drop schema if exists spring; 
 drop user if exists 'user'@'localhost'; 
 create schema spring;
 create user 'user'@'localhost' identified by 'pass123';

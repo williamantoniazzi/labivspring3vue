@@ -6,41 +6,40 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fatec.labivbackend.entity.AutorizacaoEntity;
 import com.fatec.labivbackend.entity.TrabalhoEntity;
 import com.fatec.labivbackend.repository.TrabalhoRepository;
 import jakarta.transaction.Transactional;
 
 @Service
-public class TrabalhoService {
+public class TrabalhoService implements ITrabalhoService {
     
     @Autowired
     private TrabalhoRepository trabalhoRepo;
 
-    public List<Trabalho> BuscarAll(){
+    public List<TrabalhoEntity> BuscarAll(){
         return trabalhoRepo.findAll();
     }
 
-    public Trabalho buscarporId(long id){
-        Optional<Trabalho> trabalhoOp = trabalhoRepo.findById(id);
+    public TrabalhoEntity buscarporId(long id){
+        Optional<TrabalhoEntity> trabalhoOp = trabalhoRepo.findById(id);
         if(trabalhoOp.isEmpty()){
-            throw new IllegalArgumentException("Autorizacao nao encontrada!");
+            throw new IllegalArgumentException("Trabalho nao encontrada!");
         }
         return trabalhoOp.get();
     }
 
-    public List<Trabalho> buscarTrabalhoPorPalavraENota(String titulo, Integer notaMinima) {
+    public List<TrabalhoEntity> buscarTrabalhoPorPalavraENota(String titulo, Integer notaMinima) {
         return trabalhoRepo.findBytituloContainingAndNotaGreaterThan(titulo, notaMinima);
     }
 
     @Transactional
-    public Trabalho novoTrabalho(Trabalho trabalho) {
+    public TrabalhoEntity novoTrabalho(TrabalhoEntity trabalho) {
         if(trabalho == null ||
                 trabalho.getTitulo().isEmpty() ||
                 trabalho.getTitulo() == null ||
                 trabalho.getTitulo().isBlank() || 
                 trabalho.getNota() == null ||
-                trabalho.getDataHora() == null ||
+                trabalho.getData_entrega() == null ||
                 trabalho.getDescricao() == null ||
                 trabalho.getDescricao().isBlank() ||
                 trabalho.getDescricao().isEmpty() ||
@@ -48,11 +47,23 @@ public class TrabalhoService {
                 trabalho.getGrupo().isEmpty() ||
                 trabalho.getJustificativa().isBlank() ||
                 trabalho.getJustificativa().isEmpty()) {
-            throw new IllegalArgumentException("Usuário com atributos inválidos!");
+            throw new IllegalArgumentException("Trabalho com atributos inválidos!");
         }
 
         trabalho = trabalhoRepo.save(trabalho);
         return trabalho;
 
+    }
+
+    @Override
+    public List<TrabalhoEntity> buscarTodosUsuarios() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarTodosUsuarios'");
+    }
+
+    @Override
+    public TrabalhoEntity buscarPorId(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fatec.labivbackend.entity.UsuarioEntity;
-import com.fatec.labivbackend.IUsuarioService;
+import com.fatec.labivbackend.service.IUsuarioService;
 
 @RestController
 @RequestMapping(value = "/usuario")

@@ -24,23 +24,23 @@ public class TrabalhoController {
     private TrabalhoService service;
 
     @GetMapping
-    public List<Trabalho> buscarTodos() {
+    public List<TrabalhoEntity> buscarTodos() {
         return service.BuscarAll();
     }
 
     @GetMapping(value = "/{id}")
-    public Trabalho buscarporId(@PathVariable("id") Long id) {
+    public TrabalhoEntity buscarporId(@PathVariable("id") Long id) {
         return service.buscarporId(id);
     }
 
     @GetMapping(value = "/title")
-    public List<Trabalho> buscarTrabalhoPorPalavraENota(@RequestParam String titulo, @RequestParam Integer notaMinima) {
+    public List<TrabalhoEntity> buscarTrabalhoPorPalavraENota(@RequestParam String titulo, @RequestParam Integer notaMinima) {
         return service.buscarTrabalhoPorPalavraENota(titulo, notaMinima);
         //Consulta url https://8080-larissasouz-springboot3-oxd7zqackb6.ws-us105.gitpod.io/trabalho?titulo=Teste1&notaMinima=5
     }
     
     @PostMapping
-    public Trabalho novoTrabalho(@RequestBody Trabalho trabalho) {
+    public TrabalhoEntity novoTrabalho(@RequestBody TrabalhoEntity trabalho) {
         return service.novoTrabalho(trabalho);
     }
 }
