@@ -28,23 +28,19 @@ public class TrabalhoService implements ITrabalhoService {
         return trabalhoOp.get();
     }
 
-    public List<TrabalhoEntity> buscarTrabalhoPorPalavraENota(String titulo, Integer notaMinima) {
-        return trabalhoRepo.findBytituloContainingAndNotaGreaterThan(titulo, notaMinima);
-    }
-
     @Transactional
     public TrabalhoEntity novoTrabalho(TrabalhoEntity trabalho) {
         if(trabalho == null ||
                 trabalho.getTitulo().isEmpty() ||
                 trabalho.getTitulo() == null ||
                 trabalho.getTitulo().isBlank() || 
-                trabalho.getNota() == null ||
                 trabalho.getData_entrega() == null ||
                 trabalho.getDescricao() == null ||
                 trabalho.getDescricao().isBlank() ||
                 trabalho.getDescricao().isEmpty() ||
                 trabalho.getGrupo().isBlank() ||
                 trabalho.getGrupo().isEmpty() ||
+                trabalho.getNota() == null ||
                 trabalho.getJustificativa().isBlank() ||
                 trabalho.getJustificativa().isEmpty()) {
             throw new IllegalArgumentException("Trabalho com atributos inválidos!");

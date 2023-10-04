@@ -32,12 +32,6 @@ public class TrabalhoController {
         return service.buscarporId(id);
     }
 
- /*   @GetMapping(value = "/title")
-    public List<TrabalhoEntity> buscarTrabalhoPorPalavraENota(@RequestParam String titulo, @RequestParam Integer notaMinima) {
-        return service.buscarTrabalhoPorPalavraENota(titulo, notaMinima);
-        //Consulta url https://8080-larissasouz-springboot3-oxd7zqackb6.ws-us105.gitpod.io/trabalho?titulo=Teste1&notaMinima=5
-    }
-*/   
     @PostMapping
     public TrabalhoEntity novoTrabalho(@RequestBody TrabalhoEntity trabalho) {
         return service.novoTrabalho(trabalho);
