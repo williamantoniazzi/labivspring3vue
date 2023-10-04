@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fatec.labivbackend.entity.TrabalhoEntity;
@@ -24,8 +23,8 @@ public class TrabalhoController {
     private TrabalhoService service;
 
     @GetMapping
-    public List<TrabalhoEntity> buscarTodos() {
-        return service.BuscarAll();
+    public List<TrabalhoEntity> buscarTodosTrabalhos() {
+        return service.buscarTodosTrabalhos();
     }
 
     @GetMapping(value = "/{id}")
@@ -33,12 +32,12 @@ public class TrabalhoController {
         return service.buscarporId(id);
     }
 
-    @GetMapping(value = "/title")
+ /*   @GetMapping(value = "/title")
     public List<TrabalhoEntity> buscarTrabalhoPorPalavraENota(@RequestParam String titulo, @RequestParam Integer notaMinima) {
         return service.buscarTrabalhoPorPalavraENota(titulo, notaMinima);
         //Consulta url https://8080-larissasouz-springboot3-oxd7zqackb6.ws-us105.gitpod.io/trabalho?titulo=Teste1&notaMinima=5
     }
-    
+*/   
     @PostMapping
     public TrabalhoEntity novoTrabalho(@RequestBody TrabalhoEntity trabalho) {
         return service.novoTrabalho(trabalho);

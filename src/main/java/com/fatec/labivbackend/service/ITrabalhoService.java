@@ -8,7 +8,7 @@ public interface ITrabalhoService {
 
     public TrabalhoEntity novoTrabalho(TrabalhoEntity trabalho);
 
-    public List<TrabalhoEntity> buscarTodosUsuarios();
+    public List<TrabalhoEntity> buscarTodosTrabalhos();
 
     public TrabalhoEntity buscarPorId(Long id);
     

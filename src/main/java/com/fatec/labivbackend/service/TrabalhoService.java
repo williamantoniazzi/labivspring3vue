@@ -16,7 +16,7 @@ public class TrabalhoService implements ITrabalhoService {
     @Autowired
     private TrabalhoRepository trabalhoRepo;
 
-    public List<TrabalhoEntity> BuscarAll(){
+    public List<TrabalhoEntity> buscarTodosTrabalhos() {
         return trabalhoRepo.findAll();
     }
 
@@ -55,15 +55,13 @@ public class TrabalhoService implements ITrabalhoService {
 
     }
 
-    @Override
-    public List<TrabalhoEntity> buscarTodosUsuarios() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscarTodosUsuarios'");
-    }
+
+
 
     @Override
     public TrabalhoEntity buscarPorId(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'buscarPorId'");
     }
+
 }
