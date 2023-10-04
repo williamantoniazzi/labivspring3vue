@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.service;
+package com.fatec.labivbackend.service;
 
 import java.util.HashSet;
 import java.util.List;
@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Anotacao;
-import br.gov.sp.fatec.springboot3labiv.entity.Autorizacao;
-import br.gov.sp.fatec.springboot3labiv.entity.Usuario;
-import br.gov.sp.fatec.springboot3labiv.repository.AnotacaoRepository;
-import br.gov.sp.fatec.springboot3labiv.repository.AutorizacaoRepository;
-import br.gov.sp.fatec.springboot3labiv.repository.UsuarioRepository;
+import com.fatec.labivbackend.entity.AnotacaoEntity;
+import com.fatec.labivbackend.entity.AutorizacaoEntity;
+import com.fatec.labivbackend.entity.UsuarioEntity;
+import com.fatec.labivbackend.repository.AnotacaoRepository;
+import com.fatec.labivbackend.repository.AutorizacaoRepository;
+import com.fatec.labivbackend.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService implements IUsuarioService{
@@ -29,7 +29,7 @@ public class UsuarioService implements IUsuarioService{
     private AnotacaoRepository anotacaoRepo;
 
     @Transactional
-    public Usuario novoUsuario(Usuario usuario) {
+    public UsuarioEntity novoUsuario(UsuarioEntity usuario) {
         if(usuario == null ||
                 usuario.getNome() == null ||
                 usuario.getNome().isBlank() || 
@@ -57,12 +57,12 @@ public class UsuarioService implements IUsuarioService{
         return usuario;
     }
 
-    public List<Usuario> buscarTodosUsuarios() {
+    public List<UsuarioEntity> buscarTodosUsuarios() {
         return usuarioRepo.findAll();
     }
 
-    public Usuario buscarPorId(Long id) {
-        Optional<Usuario> usuarioOp = usuarioRepo.findById(id);
+    public UsuarioEntity buscarPorId(Long id) {
+        Optional<UsuarioEntity> usuarioOp = usuarioRepo.findById(id);
         if(usuarioOp.isEmpty()) {
             throw new IllegalArgumentException("Usuario nao encontrado!");
         }

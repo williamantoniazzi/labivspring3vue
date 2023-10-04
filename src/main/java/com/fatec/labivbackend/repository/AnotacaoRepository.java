@@ -1,9 +1,9 @@
-package br.gov.sp.fatec.springboot3labiv.repository;
+package com.fatec.labivbackend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Anotacao;
+import com.fatec.labivbackend.entity.AnotacaoEntity;
 
-public interface AnotacaoRepository extends JpaRepository<Anotacao, Long>{
+public interface AnotacaoRepository extends JpaRepository<AnotacaoEntity, Long>{
     
 }

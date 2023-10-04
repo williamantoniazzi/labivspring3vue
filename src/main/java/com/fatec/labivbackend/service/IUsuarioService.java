@@ -1,15 +1,15 @@
-package br.gov.sp.fatec.springboot3labiv.service;
+package com.fatec.labivbackend.service;
 
 import java.util.List;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Usuario;
+import com.fatec.labivbackend.entity.UsuarioEntity;
 
 public interface IUsuarioService {
 
-    public Usuario novoUsuario(Usuario usuario);
+    public UsuarioEntity novoUsuario(UsuarioEntity usuario);
 
-    public List<Usuario> buscarTodosUsuarios();
+    public List<UsuarioEntity> buscarTodosUsuarios();
 
-    public Usuario buscarPorId(Long id);
+    public UsuarioEntity buscarPorId(Long id);
     
 }

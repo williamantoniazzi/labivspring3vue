@@ -1,9 +1,9 @@
-package br.gov.sp.fatec.springboot3labiv.repository;
+package com.fatec.labivbackend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Autorizacao;
+import com.fatec.labivbackend.entity.AutorizacaoEntity;
 
-public interface AutorizacaoRepository extends JpaRepository<Autorizacao, Long>{
+public interface AutorizacaoRepository extends JpaRepository<AutorizacaoEntity, Long>{
     
 }

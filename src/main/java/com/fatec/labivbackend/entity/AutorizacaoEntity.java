@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.entity;
+package com.fatec.labivbackend.entity;
 
 import java.util.Set;
 
@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "aut_autorizacao")
-public class Autorizacao {
+public class AutorizacaoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,13 +27,13 @@ public class Autorizacao {
     
     @JsonIgnore
     @ManyToMany(mappedBy = "autorizacoes", fetch = FetchType.LAZY)
-    private Set<Usuario> usuarios;
+    private Set<UsuarioEntity> usuarios;
 
-    public Autorizacao(String nome) {
+    public AutorizacaoEntity(String nome) {
         this.nome = nome;
     }
 
-    public Autorizacao() {}
+    public AutorizacaoEntity() {}
 
     public Long getId() {
         return id;
@@ -51,11 +51,11 @@ public class Autorizacao {
         this.nome = nome;
     }
 
-    public Set<Usuario> getUsuarios() {
+    public Set<UsuarioEntity> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(Set<Usuario> usuarios) {
+    public void setUsuarios(Set<UsuarioEntity> usuarios) {
         this.usuarios = usuarios;
     }
 

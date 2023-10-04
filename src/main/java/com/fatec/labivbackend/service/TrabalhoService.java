@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.service;
+package com.fatec.labivbackend.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Autorizacao;
-import br.gov.sp.fatec.springboot3labiv.entity.Trabalho;
-import br.gov.sp.fatec.springboot3labiv.repository.TrabalhoRepository;
+import com.fatec.labivbackend.entity.AutorizacaoEntity;
+import com.fatec.labivbackend.entity.TrabalhoEntity;
+import com.fatec.labivbackend.repository.TrabalhoRepository;
 import jakarta.transaction.Transactional;
 
 @Service

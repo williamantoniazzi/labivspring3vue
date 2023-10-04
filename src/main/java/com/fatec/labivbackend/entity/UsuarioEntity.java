@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.entity;
+package com.fatec.labivbackend.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "usr_usuario")
-public class Usuario {
+public class UsuarioEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,20 +34,20 @@ public class Usuario {
     @JoinTable(name = "uau_usuario_autorizacao",
         joinColumns = {@JoinColumn(name = "usr_id")},
         inverseJoinColumns = {@JoinColumn(name = "aut_id")})
-    private Set<Autorizacao> autorizacoes;
+    private Set<AutorizacaoEntity> autorizacoes;
 
     @OneToMany(mappedBy = "usuario")
-    private Set<Anotacao> anotacoes;
+    private Set<AnotacaoEntity> anotacoes;
 
-    public Usuario(String nome, String senha) {
+    public UsuarioEntity(String nome, String senha) {
         this();
         this.nome = nome;
         this.senha = senha;
     }
 
-    public Usuario() {
-        this.autorizacoes = new HashSet<Autorizacao>();
-        this.anotacoes = new HashSet<Anotacao>();
+    public UsuarioEntity() {
+        this.autorizacoes = new HashSet<AutorizacaoEntity>();
+        this.anotacoes = new HashSet<AnotacaoEntity>();
     }
 
     public Long getId() {
@@ -74,19 +74,19 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Set<Autorizacao> getAutorizacoes() {
+    public Set<AutorizacaoEntity> getAutorizacoes() {
         return autorizacoes;
     }
 
-    public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
+    public void setAutorizacoes(Set<AutorizacaoEntity> autorizacoes) {
         this.autorizacoes = autorizacoes;
     }
 
-    public Set<Anotacao> getAnotacoes() {
+    public Set<AnotacaoEntity> getAnotacoes() {
         return anotacoes;
     }
 
-    public void setAnotacoes(Set<Anotacao> anotacoes) {
+    public void setAnotacoes(Set<AnotacaoEntity> anotacoes) {
         this.anotacoes = anotacoes;
     }
     

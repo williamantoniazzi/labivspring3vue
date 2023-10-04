@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.entity;
+package com.fatec.labivbackend.entity;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ant_anotacao")
-public class Anotacao {
+public class AnotacaoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ant_id")
@@ -30,7 +30,7 @@ public class Anotacao {
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "ant_usr_id")
-    private Usuario usuario;
+    private UsuarioEntity usuario;
 
     public Long getId() {
         return id;
@@ -56,11 +56,11 @@ public class Anotacao {
         this.dataHora = dataHora;
     }
 
-    public Usuario getUsuario() {
+    public UsuarioEntity getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(UsuarioEntity usuario) {
         this.usuario = usuario;
     }
 

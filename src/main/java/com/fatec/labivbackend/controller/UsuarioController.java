@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.controller;
+package com.fatec.labivbackend.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Usuario;
-import br.gov.sp.fatec.springboot3labiv.service.IUsuarioService;
+import com.fatec.labivbackend.entity.UsuarioEntity;
+import com.fatec.labivbackend.IUsuarioService;
 
 @RestController
 @RequestMapping(value = "/usuario")
@@ -23,17 +23,17 @@ public class UsuarioController {
     private IUsuarioService service;
 
     @GetMapping
-    public List<Usuario> buscarTodos() {
+    public List<UsuarioEntity> buscarTodos() {
         return service.buscarTodosUsuarios();
     }
 
     @PostMapping
-    public Usuario novoUsuario(@RequestBody Usuario usuario) {
+    public UsuarioEntity novoUsuario(@RequestBody UsuarioEntity usuario) {
         return service.novoUsuario(usuario);
     }
     
     @GetMapping(value = "/{id}")
-    public Usuario buscarPorId(@PathVariable("id") Long id) {
+    public UsuarioEntity buscarPorId(@PathVariable("id") Long id) {
         return service.buscarPorId(id);
     }
 }

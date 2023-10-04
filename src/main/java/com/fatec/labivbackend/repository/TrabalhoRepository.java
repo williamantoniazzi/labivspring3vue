@@ -1,4 +1,4 @@
-package br.gov.sp.fatec.springboot3labiv.repository;
+package com.fatec.labivbackend.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-import br.gov.sp.fatec.springboot3labiv.entity.Trabalho;
+import com.fatec.labivbackend.entity.TrabalhoEntity;
 
 @Repository
 public interface TrabalhoRepository extends JpaRepository<Trabalho, Long>{
