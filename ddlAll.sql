@@ -49,6 +49,15 @@ create table tra_trabalho (
 	tra_justificativa varchar(100)
 );
 
+create table cpm_compromisso (
+  cpm_id bigint primary key auto_increment,
+	cpm_nome varchar(100) not null unique,
+	cpm_data_hora datetime not null,
+	cpm_duracao_prevista float not null,
+	cpm_cep bigint,
+	cpm_numero int
+);
+
 -- Inserts All
 insert into usr_usuario (usr_nome, usr_senha)
   values ('admin', '$2a$10$i3.Z8Yv1Fwl0I5SNjdCGkOTRGQjGvHjh/gMZhdc3e7LIovAklqM6C');
@@ -63,3 +72,8 @@ insert into tra_trabalho (tra_titulo, tra_data_hora_entrega, tra_grupo, tra_nota
 values 
 ('Teste 1', current_timestamp(), 'Alpha', 6, 'Bom, mas falta conteúdo'),
 ('Teste 2', current_timestamp(), 'Beta', 3, 'Incompleto');
+
+insert into cpm_compromisso (cpm_nome, cpm_data_hora, cpm_duracao_prevista)
+values ('Dentista', '2023-10-5 16:00:00', 0.5);
+insert into cpm_compromisso (cpm_nome, cpm_data_hora, cpm_duracao_prevista, cpm_cep, cpm_numero)
+values ('Prova', '2023-10-4 21:25:00', 1.5, 12247014, 1350);
