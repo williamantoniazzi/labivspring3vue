@@ -12,7 +12,7 @@
 	<artifactId>labivbackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>labivbackend</name>
-	<description>Proba LabIV Backend</description>
+	<description>Prova LabIV Backend</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
