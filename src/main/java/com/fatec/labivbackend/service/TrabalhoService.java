@@ -35,14 +35,15 @@ public class TrabalhoService implements ITrabalhoService {
                 trabalho.getTitulo() == null ||
                 trabalho.getTitulo().isBlank() || 
                 trabalho.getData_entrega() == null ||
-                trabalho.getDescricao() == null ||
-                trabalho.getDescricao().isBlank() ||
-                trabalho.getDescricao().isEmpty() ||
+//                trabalho.getDescricao() == null ||
+//                trabalho.getDescricao().isBlank() ||
+//                trabalho.getDescricao().isEmpty() ||
                 trabalho.getGrupo().isBlank() ||
-                trabalho.getGrupo().isEmpty() ||
-                trabalho.getNota() == null ||
-                trabalho.getJustificativa().isBlank() ||
-                trabalho.getJustificativa().isEmpty()) {
+                trabalho.getGrupo() == null)
+//                trabalho.getNota() == null ||
+//                trabalho.getJustificativa().isBlank() ||
+//                trabalho.getJustificativa().isEmpty()) 
+            {
             throw new IllegalArgumentException("Trabalho com atributos inválidos!");
         }
 
